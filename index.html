@@ -3,21 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>과학탐구 과목 조합 입력 폼</title>
+    <title>서울대 1차 수능 성적 계산기</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>과학탐구 과목 조합 입력</h1>
-        <form id="subject-form">
-            <label for="science-combination">과학탐구 과목 조합:</label>
-            <select id="science-combination" name="science-combination">
-                <option value="I+I">I+I</option>
-                <option value="I+II">I+II</option>
-                <option value="II+II">II+II</option>
+        <h1>서울대 1차 수능 성적 계산기</h1>
+        <form id="score-form">
+            <label for="korean-score">국어 표준점수:</label>
+            <input type="number" id="korean-score" name="korean-score" required>
+            
+            <label for="math-score">수학 표준점수:</label>
+            <input type="number" id="math-score" name="math-score" required>
+            
+            <label for="subject1-score">탐구1 표준점수:</label>
+            <input type="number" id="subject1-score" name="subject1-score" required>
+            
+            <label for="subject2-score">탐구2 표준점수:</label>
+            <input type="number" id="subject2-score" name="subject2-score" required>
+            
+            <label for="english-grade">영어 등급:</label>
+            <select id="english-grade" name="english-grade" required>
+                <option value="1">1등급</option>
+                <option value="2">2등급</option>
+                <option value="3">3등급</option>
+                <option value="4">4등급</option>
+                <option value="5">5등급</option>
+                <option value="6">6등급</option>
+                <option value="7">7등급</option>
+                <option value="8">8등급</option>
+                <option value="9">9등급</option>
             </select>
-            <button type="submit">제출</button>
+            
+            <label for="korean-history-grade">한국사 등급:</label>
+            <select id="korean-history-grade" name="korean-history-grade" required>
+                <option value="1">1등급</option>
+                <option value="2">2등급</option>
+                <option value="3">3등급</option>
+                <option value="4">4등급</option>
+                <option value="5">5등급</option>
+                <option value="6">6등급</option>
+                <option value="7">7등급</option>
+                <option value="8">8등급</option>
+                <option value="9">9등급</option>
+            </select>
+
+            <label for="science-combination">과학탐구 과목 조합:</label>
+            <select id="science-combination" name="science-combination" required>
+                <option value="I+I">I + I</option>
+                <option value="I+II">I + II</option>
+                <option value="II+II">II + II</option>
+            </select>
+            
+            <button type="submit">계산</button>
         </form>
         <p id="result"></p>
     </div>
