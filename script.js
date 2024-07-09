@@ -27,7 +27,7 @@ document.getElementById('score-form').addEventListener('submit', function(event)
     let scienceBonus = 0;
     if (scienceCombination === 'I+II') {
         scienceBonus = 1.5;
-    } else if (scienceCombination === 'II+II') {
+        else if (scienceCombination === 'II+II') {
         scienceBonus = 3;
     }
 
