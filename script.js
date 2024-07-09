@@ -1,4 +1,27 @@
-document.getElementById('score-form').addEventListener('submit', function(event) {
+// URL 매개변수 파싱 함수
+function getQueryParams() {
+    const params = {};
+    window.location.search.substring(1).split("&").forEach(function(pair) {
+        const [key, value] = pair.split("=");
+        params[key] = decodeURIComponent(value);
+    });
+    return params;
+}
+
+// 폼 필드에 URL 매개변수 값 설정
+function setFormValues(params) {
+    for (const key in params) {
+        if (params.hasOwnProperty(key)) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.value = params[key];
+            }
+        }
+    }
+}
+
+// 계산 함수
+function calculateScore(event) {
     event.preventDefault();
 
     const koreanScore = parseFloat(document.getElementById('korean-score').value);
@@ -27,7 +50,7 @@ document.getElementById('score-form').addEventListener('submit', function(event)
     let scienceBonus = 0;
     if (scienceCombination === 'I+II') {
         scienceBonus = 1.5;
-        else if (scienceCombination === 'II+II') {
+    } else if (scienceCombination === 'II+II') {
         scienceBonus = 3;
     }
 
@@ -37,4 +60,13 @@ document.getElementById('score-form').addEventListener('submit', function(event)
     // 결과 출력
     const resultElement = document.getElementById('result');
     resultElement.textContent = `총점: ${totalScore.toFixed(2)}`;
+}
+
+// URL 매개변수 설정
+document.addEventListener('DOMContentLoaded', function() {
+    const params = getQueryParams();
+    setFormValues(params);
 });
+
+// 폼 제출 이벤트 리스너
+document.getElementById('score-form').addEventListener('submit', calculateScore);
